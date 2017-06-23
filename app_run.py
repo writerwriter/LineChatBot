@@ -38,7 +38,10 @@ def handle_message(event):
     if "idiot" in event.message.text:
         line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text))
+        ImageSendMessage(
+            original_content_url='https://i.ytimg.com/vi/oujA4rk2s3Q/maxresdefault.jpg',
+            preview_image_url='https://i.ytimg.com/vi/oujA4rk2s3Q/maxresdefault.jpg'
+        ))
 
 
 if __name__ == "__main__":
