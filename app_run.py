@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage
+    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,VideoSendMessage
 )
 
 app = Flask(__name__)
@@ -49,6 +49,13 @@ def handle_message(event):
                 original_content_url='https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/19400027_10155616239051564_8978737683901429880_n.jpg?oh=d6ead0d58f3359369b39cb50b4ee8ee7&oe=59CB836D', 
                 preview_image_url='https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/19400027_10155616239051564_8978737683901429880_n.jpg?oh=d6ead0d58f3359369b39cb50b4ee8ee7&oe=59CB836D'
             ))
+    elif curMessage[0] == '!' and curMessage[1:curMessage.size()] == 'writerwriter':
+        line_bot_api.reply_message(
+            event.reply_token,
+            VideoSendMessage(
+                original_content_url='https://youtu.be/VQ6ch8Brpg4',
+                preview_image_url='https://i.ytimg.com/vi/VQ6ch8Brpg4/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBKOkNcr7uNlJ1AShN08pZbSQFkDg'
+             ))
     else :
         line_bot_api.reply_message(
             event.reply_token,
