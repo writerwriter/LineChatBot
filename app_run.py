@@ -53,7 +53,7 @@ def handle_message(event):
         line_bot_api.reply_message(
             event.reply_token,
             VideoSendMessage(
-                original_content_url='https://youtu.be/VQ6ch8Brpg4',
+                original_content_url='https://www.youtube.com/embed/VQ6ch8Brpg4',
                 preview_image_url='https://i.ytimg.com/vi/VQ6ch8Brpg4/hqdefault.jpg?sqp=-oaymwEWCMQBEG5IWvKriqkDCQgBFQAAiEIYAQ==&rs=AOn4CLBKOkNcr7uNlJ1AShN08pZbSQFkDg'
              ))
     else :
