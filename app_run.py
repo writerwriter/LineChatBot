@@ -34,20 +34,25 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    if "idiot" in event.message.text:
+    curMessage = event.message.text
+    if "idiot" in curMessage:
         line_bot_api.reply_message(
         event.reply_token,
         ImageSendMessage(
             original_content_url='https://i.ytimg.com/vi/oujA4rk2s3Q/maxresdefault.jpg',
             preview_image_url='https://i.ytimg.com/vi/oujA4rk2s3Q/maxresdefault.jpg'
         ))
-    if "Nvidia" in event.message.text:
+    elif "Nvidia" in curMessage:
         line_bot_api.reply_message(
             event.reply_token,
             ImageSendMessage(
                 original_content_url='https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/19400027_10155616239051564_8978737683901429880_n.jpg?oh=d6ead0d58f3359369b39cb50b4ee8ee7&oe=59CB836D', 
                 preview_image_url='https://scontent-tpe1-1.xx.fbcdn.net/v/t1.0-9/19400027_10155616239051564_8978737683901429880_n.jpg?oh=d6ead0d58f3359369b39cb50b4ee8ee7&oe=59CB836D'
             ))
+    else :
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=curMessage))
 
 
 if __name__ == "__main__":
