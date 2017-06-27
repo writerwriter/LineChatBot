@@ -7,7 +7,7 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,VideoSendMessage,FollowEvent
+    MessageEvent, TextMessage, TextSendMessage,ImageSendMessage,VideoSendMessage,FollowEvent,SourceUser,SourceGroup,SourceRoom,sources
 )
 
 import json
@@ -16,7 +16,6 @@ app = Flask(__name__)
 
 line_bot_api = LineBotApi('8jcGFCz9Go0qoKbsILVbhIJdEWGReHqed41Q9xbl/vwNwuppb9rnFFrPURRC1SjZASRIwaxuUVGlMevPEyvzNKsoJ2siWkyp06v2w9IrPRMtd5hnkROuruAQSXgGou7Re3r5LI9DToqEW5rAOMejMAdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('98d7239e53dba377e08cd9d1e45f60bb')
-
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -36,7 +35,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    userid = json.loads(json.dumps(event.source))['userId']
+    userid = json.loads(handler.parser.parse(body, '98d7239e53dba377e08cd9d1e45f60bb'))['source']['userId']
     line_bot_api.push_message(userid, "fuck", timeout=None)
     curMessage = event.message.text
     if "idiot" in curMessage:
