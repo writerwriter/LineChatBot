@@ -35,7 +35,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    userid = handler.parser.parse(body, '98d7239e53dba377e08cd9d1e45f60bb')[0].source.userId
+    userid = event.source.userId
     line_bot_api.push_message(userid, "fuck", timeout=None)
     curMessage = event.message.text
     if "idiot" in curMessage:
