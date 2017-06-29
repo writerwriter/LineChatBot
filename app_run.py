@@ -58,7 +58,7 @@ def handle_message(event):
             TextSendMessage(text='https://www.youtube.com/embed/VQ6ch8Brpg4'))
     elif curMessage == 'Sam':
         line_bot_api.reply_message(event.reply_token,
-        TextSendMessage(text='Handsome!!'))
+        TextSendMessage(text='Idiot'))
     else :
         line_bot_api.reply_message(
             event.reply_token,
