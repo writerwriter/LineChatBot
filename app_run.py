@@ -55,7 +55,7 @@ def handle_message(event):
     elif curMessage == "AdeleHello":
         line_bot_api.reply_message(
             event.reply_token,
-            VideoSendMessage(original_content_url='http://6056fa77.ngrok.io/video/AdeleHello.mp4', preview_image_url=None))
+            VideoSendMessage(original_content_url='https://c0f932f1.ngrok.io/video/AdeleHello.mp4', preview_image_url=None))
     elif curMessage == 'Sam':
         line_bot_api.reply_message(event.reply_token,
         TextSendMessage(text='Idiot'))
