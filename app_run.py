@@ -59,10 +59,6 @@ def handle_message(event):
     elif curMessage == 'Sam':
         line_bot_api.reply_message(event.reply_token,
         TextSendMessage(text='Idiot'))
-    else :
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=curMessage))
 
 if __name__ == "__main__":
     app.run()
